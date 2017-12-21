@@ -87,7 +87,7 @@ class ResponseTest extends TestCase
     public function it_throws_exception_when_invalid_result_given()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('result must only contain arrays and scalar values');
+        $this->expectExceptionMessage('result must only contain arrays, stdClasses and scalar values');
 
         JsonRpcResponse::withResult('id', new \stdClass());
     }
@@ -98,7 +98,7 @@ class ResponseTest extends TestCase
     public function it_throws_exception_when_invalid_sub_result_given()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('result must only contain arrays and scalar values');
+        $this->expectExceptionMessage('result must only contain arrays, stdClasses and scalar values');
 
         JsonRpcResponse::withResult('id', ['foo' => new \stdClass()]);
     }

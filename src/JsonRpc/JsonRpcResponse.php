@@ -147,8 +147,8 @@ final class JsonRpcResponse implements Response
             return;
         }
 
-        if (! is_scalar($payload) && null !== $payload) {
-            throw new Exception\InvalidArgumentException($name . ' must only contain arrays and scalar values');
+        if (! is_scalar($payload) && null !== $payload && !($payload instanceof \stdClass)) {
+            throw new Exception\InvalidArgumentException($name . ' must only contain arrays, stdClasses and scalar values');
         }
     }
 }
